@@ -5,7 +5,7 @@
 
 export const GITHUB_CONFIG = {
   // 仓库信息
-  REPO_OWNER: 'your-username',        // 替换为您的GitHub用户名
+  REPO_OWNER: 'lytaiyuan',            // 替换为您的GitHub用户名
   REPO_NAME: 'my-portfolio-data',     // 仓库名称
   BRANCH: 'main',                     // 分支名称
   
