@@ -55,11 +55,11 @@ class GitHubDataService {
   }
 
   /**
-   * 获取设计作品数据
-   * @returns {Promise<Object>} 设计配置
+   * 获取平面设计数据
+   * @returns {Promise<Object>} 平面设计配置
    */
-  async getDesign() {
-    return await this.getConfig('design.json');
+  async getGraphicContent() {
+    return await this.getConfig('graphiccontent.json');
   }
 
   /**

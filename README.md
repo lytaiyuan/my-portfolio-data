@@ -18,7 +18,11 @@
 - `config/photos.json` - 照片数据配置
 - `config/music.json` - 音乐数据配置
 - `config/videos.json` - 视频数据配置
-- `config/design.json` - 设计作品配置
+- `config/graphiccontent.json` - 平面设计配置
+- `packaging.json` - 包装设计配置
+- `vi.json` - VI设计配置
+- `productphotos.json` - 产品照片配置
+- `hero.json` - 主页英雄区域配置
 
 ## 使用说明
 

@@ -190,10 +190,14 @@ function Videos() {
 
 **原来的代码:**
 ```javascript
-import designData from '../../public/design.json';
+import graphicContentData from '../../public/graphiccontent.json';
+import packagingData from '../../public/packaging.json';
+import viData from '../../public/vi.json';
 
 // 在组件中使用
-const designItems = designData.items;
+const graphicItems = graphicContentData.items;
+const packagingItems = packagingData.items;
+const viItems = viData.items;
 ```
 
 **修改后的代码:**
@@ -202,16 +206,25 @@ import { defaultService } from '../../utils/github-data';
 import { useState, useEffect } from 'react';
 
 function Design() {
-  const [designItems, setDesignItems] = useState([]);
+  const [graphicItems, setGraphicItems] = useState([]);
+  const [packagingItems, setPackagingItems] = useState([]);
+  const [viItems, setViItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchDesign = async () => {
+    const fetchDesignData = async () => {
       try {
         setLoading(true);
-        const data = await defaultService.getDesign();
-        setDesignItems(data.items);
+        const [graphicData, packagingData, viData] = await Promise.all([
+          defaultService.getGraphicContent(),
+          defaultService.getPackaging(),
+          defaultService.getVI()
+        ]);
+        
+        setGraphicItems(graphicData.items);
+        setPackagingItems(packagingData.items);
+        setViItems(viData.items);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -219,7 +232,7 @@ function Design() {
       }
     };
 
-    fetchDesign();
+    fetchDesignData();
   }, []);
 
   if (loading) return <div>加载中...</div>;
@@ -227,16 +240,50 @@ function Design() {
 
   return (
     <div>
-      {designItems.map(item => (
-        <div key={item.id}>
-          <img 
-            src={defaultService.getImageUrl(item.cover)} 
-            alt={item.title} 
-          />
-          <h3>{item.title}</h3>
-          <p>{item.subtitle}</p>
-        </div>
-      ))}
+      {/* 平面设计 */}
+      <section>
+        <h2>平面设计</h2>
+        {graphicItems.map(item => (
+          <div key={item.id}>
+            <img 
+              src={defaultService.getImageUrl(item.cover)} 
+              alt={item.title} 
+            />
+            <h3>{item.title}</h3>
+            <p>{item.subtitle}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* 包装设计 */}
+      <section>
+        <h2>包装设计</h2>
+        {packagingItems.map(item => (
+          <div key={item.id}>
+            <img 
+              src={defaultService.getImageUrl(item.cover)} 
+              alt={item.title} 
+            />
+            <h3>{item.title}</h3>
+            <p>{item.subtitle}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* VI设计 */}
+      <section>
+        <h2>VI设计</h2>
+        {viItems.map(item => (
+          <div key={item.id}>
+            <img 
+              src={defaultService.getImageUrl(item.cover)} 
+              alt={item.title} 
+            />
+            <h3>{item.title}</h3>
+            <p>{item.subtitle}</p>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
