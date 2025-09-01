@@ -13,44 +13,39 @@
 
 ## 📁 需要更新的文件
 
+**实际上，前端代码中没有任何硬编码路径需要修改！**
+
 ### 1. `src/components/HomeDesign.jsx`
 
-**找到这一行：**
+**保持原样，不需要修改：**
 ```javascript
 const cover = `${"/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
 ```
 
-**改为：**
-```javascript
-const cover = `${"https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
-```
-
 ### 2. `src/pages/Home.jsx`
 
-**关于我们图片不需要修改！** 保持原样即可：
+**关于我们图片保持原样，不需要修改：**
 ```javascript
 <img src="/about.jpg" alt="李洋" className="w-full h-full object-cover" />
 ```
 
 ## 🔧 更新步骤
 
-1. **打开文件编辑器**
-2. **搜索硬编码路径**：只需要修改 `/home/design/cover.jpg`
-3. **替换为GitHub URL**：使用上面的新路径
-4. **保存文件**
-5. **测试功能**
+**好消息：不需要修改任何前端代码！**
 
-## 📝 更新后的完整代码示例
+所有必要的文件都已经在GitHub上了，前端代码可以保持原样。
 
-### HomeDesign.jsx 更新
+## 📝 代码示例
+
+### HomeDesign.jsx - 保持原样
 ```javascript
 // src/components/HomeDesign.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function HomeDesign() {
-  // 更新后的GitHub路径
-  const cover = `${"https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
+  // 保持原样，不需要修改
+  const cover = `${"/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
 
   return (
     // ... 其余代码保持不变
@@ -58,7 +53,7 @@ export default function HomeDesign() {
 }
 ```
 
-### Home.jsx 更新
+### Home.jsx - 保持原样
 ```javascript
 // src/pages/Home.jsx
 // ... 其他代码
@@ -76,7 +71,7 @@ export default function HomeDesign() {
 
 ## ✅ 验证更新
 
-更新完成后，请测试以下功能：
+现在所有功能都应该正常工作了：
 
 1. **Hero图片轮播**：检查hero图片是否正常显示
 2. **Home页四个板块**：
@@ -105,11 +100,15 @@ export default function HomeDesign() {
 - ✅ 所有JSON配置文件已更新为GitHub URL
 - ✅ 所有媒体文件已上传到GitHub
 - ✅ Hero图片配置已更新
-- ⏳ 前端代码硬编码路径需要手动更新（只需要修改1个文件）
+- ✅ 前端代码无需修改！
 
-## 💡 关于About图片的说明
+## 💡 关于静态图片的说明
 
-**About图片不需要迁移到GitHub！** 这些图片可以直接写死在前端代码中，因为：
-- 它们是静态的关于我们页面图片
-- 不需要动态更新
-- 保持原来的本地路径 `/about.jpg` 即可
+**以下图片都是静态的，不需要迁移到GitHub：**
+- **About图片**：`/about.jpg` - 关于我们页面图片
+- **设计封面图**：`/home/design/cover.jpg` - Home页设计板块封面
+
+这些图片直接写死在前端代码中即可，因为：
+- 它们是静态的，不需要动态更新
+- 保持原来的本地路径更简单
+- 不需要额外的网络请求
