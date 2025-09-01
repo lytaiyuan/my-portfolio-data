@@ -141,11 +141,11 @@ function updateFileUrls(filePath) {
       }
     }
     
-    // 更新主页配置URL
+    // 更新hero.json中的path字段
     if (filePath.includes('hero.json')) {
       let newContent = content.replace(
-        /"image": "\/home\//g,
-        `"image": "${GITHUB_BASE_URL}/home/`
+        /"path": "\/hero\//g,
+        `"path": "${GITHUB_BASE_URL}/hero/`
       );
       if (newContent !== content) {
         fs.writeFileSync(filePath, newContent);
@@ -182,6 +182,9 @@ function main() {
   
   console.log('\n🎉 URL更新完成！');
   console.log('现在所有配置文件中的路径都指向GitHub了');
+  console.log('\n⚠️  注意：前端代码中还有硬编码的路径需要手动更新：');
+  console.log('   - HomeDesign.jsx 中的 /home/design/cover.jpg');
+  console.log('   - Home.jsx 中的 /about.jpg');
 }
 
 // 运行脚本
