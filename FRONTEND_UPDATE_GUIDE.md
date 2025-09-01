@@ -1,91 +1,71 @@
 # 前端代码更新指南
 
-## 🎯 需要手动更新的硬编码路径
+## 🎯 当前状态
 
-在将数据迁移到GitHub后，前端代码中还有一些硬编码的本地路径需要手动更新。
+**好消息：前端代码完全不需要修改！**
 
-## ✅ 好消息
+## ✅ 已完成的工作
 
-**所有必要的文件现在都已经上传到GitHub了！** 包括：
-- ✅ Hero图片（hero.json + hero/目录）
-- ✅ 设计封面图（home/design/cover.jpg）
-- ✅ 所有配置文件（photos.json, music.json, videos.json等）
+1. **Hero图片** - 已上传到GitHub，通过hero.json动态配置
+2. **设计板块cover图** - 已放回原工程源代码的 `public/home/design/` 目录
+3. **所有配置文件** - 已使用GitHub URL（photos.json, music.json, videos.json等）
+4. **所有媒体文件** - 已上传到GitHub（照片、音乐、视频、设计等）
 
-## 📁 需要更新的文件
+## 📁 文件分布
 
-**实际上，前端代码中没有任何硬编码路径需要修改！**
+### GitHub数据仓库 (`my-portfolio-data`)
+- ✅ **hero/** - 所有hero轮播图片
+- ✅ **config/** - 所有JSON配置文件
+- ✅ **photos/** - 照片文件
+- ✅ **music/** - 音乐文件
+- ✅ **videos/** - 视频文件
+- ✅ **graphic/** - 平面设计文件
+- ✅ **packaging/** - 包装设计文件
+- ✅ **vi/** - VI设计文件
 
-### 1. `src/components/HomeDesign.jsx`
+### 原工程源代码 (`my-portfolio`)
+- ✅ **public/home/design/cover.jpg** - 设计板块封面图（静态）
+- ✅ **public/about.jpg** - 关于我们页面图片（静态）
 
-**保持原样，不需要修改：**
-```javascript
-const cover = `${"/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
-```
+## 🔧 前端代码
 
-### 2. `src/pages/Home.jsx`
-
-**关于我们图片保持原样，不需要修改：**
-```javascript
-<img src="/about.jpg" alt="李洋" className="w-full h-full object-cover" />
-```
-
-## 🔧 更新步骤
-
-**好消息：不需要修改任何前端代码！**
-
-所有必要的文件都已经在GitHub上了，前端代码可以保持原样。
-
-## 📝 代码示例
+**所有前端代码都保持原样，无需修改：**
 
 ### HomeDesign.jsx - 保持原样
 ```javascript
 // src/components/HomeDesign.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-
-export default function HomeDesign() {
-  // 保持原样，不需要修改
-  const cover = `${"/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
-
-  return (
-    // ... 其余代码保持不变
-  );
-}
+const cover = `${"/home/design/cover.jpg"}${import.meta.env.DEV ? `?v=${Date.now()}` : ""}`;
 ```
 
 ### Home.jsx - 保持原样
 ```javascript
 // src/pages/Home.jsx
-// ... 其他代码
-
-<div className="w-36 md:w-40 aspect-[4/3] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
-  <img 
-    src="/about.jpg"  // 保持原样，不需要修改
-    alt="李洋" 
-    className="w-full h-full object-cover" 
-  />
-</div>
-
-// ... 其他代码
+<img src="/about.jpg" alt="李洋" className="w-full h-full object-cover" />
 ```
 
-## ✅ 验证更新
+### useContent.js - 已配置为从GitHub获取数据
+```javascript
+// 从GitHub获取hero.json配置文件
+const response = await fetch('https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/hero.json');
+```
+
+## ✅ 验证功能
 
 现在所有功能都应该正常工作了：
 
-1. **Hero图片轮播**：检查hero图片是否正常显示
+1. **Hero图片轮播**：从GitHub动态获取，随机显示
 2. **Home页四个板块**：
-   - 照片板块（应该显示第一张照片）
-   - 视频板块（应该显示第一个视频）
-   - 设计板块（应该显示设计封面图）
-   - 音乐板块（应该显示第一个音乐封面）
-3. **关于我们**：检查李洋的照片是否正常显示
+   - 照片板块：从GitHub获取第一张照片
+   - 视频板块：从GitHub获取第一个视频
+   - 设计板块：显示本地静态封面图
+   - 音乐板块：从GitHub获取第一个音乐封面
+3. **关于我们**：显示本地静态图片
 
 ## 🚨 注意事项
 
 - 确保GitHub仓库已经设置为公开
 - 所有媒体文件都已上传到GitHub
-- 如果图片仍然无法显示，请检查GitHub上的文件路径是否正确
+- 设计板块cover图现在在本地源代码中
 
 ## 📞 技术支持
 
@@ -100,15 +80,13 @@ export default function HomeDesign() {
 - ✅ 所有JSON配置文件已更新为GitHub URL
 - ✅ 所有媒体文件已上传到GitHub
 - ✅ Hero图片配置已更新
+- ✅ 设计板块cover图已放回源代码
 - ✅ 前端代码无需修改！
 
-## 💡 关于静态图片的说明
+## 💡 架构说明
 
-**以下图片都是静态的，不需要迁移到GitHub：**
-- **About图片**：`/about.jpg` - 关于我们页面图片
-- **设计封面图**：`/home/design/cover.jpg` - Home页设计板块封面
+**混合架构设计：**
+- **动态内容**：Hero图片、照片、音乐、视频等通过GitHub动态获取
+- **静态内容**：设计板块cover图、about图片等保持在本地源代码中
 
-这些图片直接写死在前端代码中即可，因为：
-- 它们是静态的，不需要动态更新
-- 保持原来的本地路径更简单
-- 不需要额外的网络请求
+这样既实现了内容的云端存储和动态更新，又保持了静态资源的简单可靠！
