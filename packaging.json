@@ -5,18 +5,18 @@
       "id": 1,
       "slug": "oufen",
       "title": "藕粉包装设计",
-      "cover": "/packaging/oufen/cover.jpg",
-      "images": ["/packaging/oufen/image.jpg"],
-      "pdf": "/packaging/oufen/doc.pdf",
+      "cover": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/oufen/cover.jpg",
+      "images": ["https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/oufen/image.jpg"],
+      "pdf": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/oufen/doc.pdf",
       "subtitle": "年轻化"
     },
     {
       "id": 2,
       "slug": "bupin",
       "title": "补品包装设计",
-      "cover": "/packaging/bupin/cover.jpg",
-      "pdf": "/packaging/bupin/doc.pdf",
-      "images": ["/packaging/bupin/image.jpg"],
+      "cover": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/bupin/cover.jpg",
+      "pdf": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/bupin/doc.pdf",
+      "images": ["https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging/bupin/image.jpg"],
       "subtitle": "金银花，精致饮片"
     }
   ]
