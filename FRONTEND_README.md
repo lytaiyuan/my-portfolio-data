@@ -1,16 +1,15 @@
-# 前端集成自述文件
+# 前端集成指南 - 公开仓库版本
 
 ## 🎯 项目概述
 
-这是一个React作品集网站的数据仓库，所有内容数据已迁移到GitHub私有仓库。前端需要从本地文件读取改为从GitHub API读取数据。
+这是一个React作品集网站的数据仓库，所有内容数据已迁移到GitHub公开仓库。前端可以直接通过GitHub的raw文件URL访问数据，无需认证。
 
-## 🔐 认证信息
+## 🌐 仓库信息
 
 - **仓库**: `lytaiyuan/my-portfolio-data`
-- **类型**: 私有仓库
-- **Token**: `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`
+- **类型**: 公开仓库
 - **分支**: `main`
-- **API基础URL**: `https://api.github.com/repos/lytaiyuan/my-portfolio-data/contents`
+- **访问方式**: 直接通过GitHub raw文件URL
 
 ## 📁 文件结构
 
@@ -49,46 +48,26 @@ my-portfolio-data/
 ├── hero.json                  # 主页英雄区域配置
 ├── packaging.json             # 包装设计配置
 ├── vi.json                    # VI设计配置
-├── productphotos.json         # 产品照片配置
-└── utils/                     # 工具文件
-    └── github-data.js        # GitHub数据访问工具
+└── productphotos.json         # 产品照片配置
 ```
 
-## 🌐 API接口
+## 🔗 直接访问URL
 
-### 请求头要求
-```
-Authorization: token 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
-Accept: application/vnd.github.v3.raw
-```
+### 配置文件
+- **照片配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/photos.json`
+- **音乐配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/music.json`
+- **视频配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/videos.json`
+- **平面设计配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/graphiccontent.json`
+- **英雄区域配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/hero.json`
+- **包装设计配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/packaging.json`
+- **VI设计配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/vi.json`
+- **产品照片配置**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/productphotos.json`
 
-### 主要接口
-
-#### 1. 照片数据
-- **URL**: `GET /repos/lytaiyuan/my-portfolio-data/contents/config/photos.json`
-- **返回**: 24张照片的配置信息
-- **用途**: Photos页面数据
-
-#### 2. 音乐数据
-- **URL**: `GET /repos/lytaiyuan/my-portfolio-data/contents/config/music.json`
-- **返回**: 2首音乐的配置信息
-- **用途**: Music页面数据
-
-#### 3. 视频数据
-- **URL**: `GET /repos/lytaiyuan/my-portfolio-data/contents/config/videos.json`
-- **返回**: 3个视频的配置信息
-- **用途**: Videos页面数据
-
-#### 4. 平面设计数据
-- **URL**: `GET /repos/lytaiyuan/my-portfolio-data/contents/config/graphiccontent.json`
-- **返回**: 平面设计项目配置
-- **用途**: Design页面数据
-
-#### 5. 其他配置文件
-- **英雄区域**: `GET /repos/lytaiyuan/my-portfolio-data/contents/hero.json`
-- **包装设计**: `GET /repos/lytaiyuan/my-portfolio-data/contents/packaging.json`
-- **VI设计**: `GET /repos/lytaiyuan/my-portfolio-data/contents/vi.json`
-- **产品照片**: `GET /repos/lytaiyuan/my-portfolio-data/contents/productphotos.json`
+### 媒体文件
+- **照片**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/`
+- **音乐**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/`
+- **视频**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/`
+- **设计**: `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/`
 
 ## 📊 数据格式
 
@@ -127,38 +106,11 @@ Accept: application/vnd.github.v3.raw
 }
 ```
 
-### 视频配置示例 (videos.json)
-```json
-{
-  "version": "2025.08.29-3",
-  "items": [
-    {
-      "id": 1,
-      "slug": "tingjian-ziji-tingjian-ni",
-      "title": "听见自己，听见你",
-      "poster": "/videos/yuntingfinal/yuntingfinal.jpg",
-      "duration": "3:34"
-    }
-  ]
-}
-```
-
 ## 🔧 前端集成步骤
 
-### 1. 安装依赖
-```bash
-npm install dotenv
-```
+### 1. 替换数据获取逻辑
 
-### 2. 创建环境变量文件 (.env)
-```bash
-GITHUB_TOKEN=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
-GITHUB_USERNAME=lytaiyuan
-GITHUB_REPO_NAME=my-portfolio-data
-```
-
-### 3. 替换数据获取逻辑
-将原来的静态导入改为API调用：
+将原来的静态导入改为fetch API调用：
 
 **原来:**
 ```javascript
@@ -172,76 +124,165 @@ const [photos, setPhotos] = useState([]);
 
 useEffect(() => {
   const fetchPhotos = async () => {
-    const response = await fetch(
-      'https://api.github.com/repos/lytaiyuan/my-portfolio-data/contents/config/photos.json',
-      {
-        headers: {
-          'Authorization': 'token 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',
-          'Accept': 'application/vnd.github.v3.raw'
-        }
-      }
-    );
-    const data = await response.json();
-    setPhotos(data.items);
+    try {
+      const response = await fetch(
+        'https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/photos.json'
+      );
+      const data = await response.json();
+      setPhotos(data.items);
+    } catch (error) {
+      console.error('获取照片失败:', error);
+    }
   };
   
   fetchPhotos();
 }, []);
 ```
 
-## ⚠️ 重要注意事项
+### 2. 修改媒体文件路径
 
-### 1. 私有仓库限制
-- 媒体文件无法直接通过URL访问
-- 需要通过GitHub API获取Base64编码内容
-- 所有请求都需要Token认证
-
-### 2. 安全考虑
-- Token不要提交到Git仓库
-- 使用环境变量管理敏感信息
-- 在生产环境中安全配置Token
-
-### 3. 性能优化
-- 实现数据缓存机制
-- 添加加载状态和错误处理
-- 考虑使用React Query或SWR
-
-### 4. 媒体文件处理
-由于是私有仓库，图片等媒体文件需要特殊处理：
+将JSON中的相对路径改为完整的GitHub raw URL：
 
 ```javascript
-// 获取图片的Base64内容
-const getImageContent = async (imagePath) => {
-  const response = await fetch(
-    `https://api.github.com/repos/lytaiyuan/my-portfolio-data/contents${imagePath}`,
-    {
-      headers: {
-        'Authorization': 'token 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',
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    }
-  );
-  
-  const data = await response.json();
-  return `data:image/jpeg;base64,${data.content}`;
-};
+// 原来的相对路径
+<img src="/photos/image.jpg" alt="照片" />
+
+// 改为完整的GitHub URL
+<img src="https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/image.jpg" alt="照片" />
 ```
 
-## 🚀 调试建议
+### 3. 创建路径转换函数
 
-1. **先测试API**: 使用Postman或浏览器测试API是否能正常返回数据
-2. **逐步替换**: 一个页面一个页面地替换数据获取逻辑
-3. **错误处理**: 添加适当的错误处理和用户提示
-4. **性能监控**: 监控API请求的性能和成功率
+```javascript
+const getGitHubUrl = (path) => {
+  if (path.startsWith('http')) {
+    return path; // 如果是外部链接，直接返回
+  }
+  return `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main${path}`;
+};
 
-## 📞 技术支持
+// 使用示例
+<img src={getGitHubUrl(photo.url)} alt={photo.title} />
+```
 
-如果遇到问题，请检查：
-1. Token是否有效
-2. 仓库权限是否正确
-3. API请求头是否完整
-4. 网络连接是否正常
+## 📝 具体页面修改示例
+
+### Photos.jsx
+```javascript
+import { useState, useEffect } from 'react';
+
+function Photos() {
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await fetch(
+          'https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/photos.json'
+        );
+        const data = await response.json();
+        setPhotos(data.items);
+      } catch (error) {
+        console.error('获取照片失败:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+  const getGitHubUrl = (path) => {
+    return `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main${path}`;
+  };
+
+  if (loading) return <div>加载中...</div>;
+
+  return (
+    <div>
+      {photos.map(photo => (
+        <div key={photo.id}>
+          <img 
+            src={getGitHubUrl(photo.url)} 
+            alt={photo.title} 
+          />
+          <h3>{photo.title}</h3>
+          <p>{photo.desc}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Photos;
+```
+
+### Music.jsx
+```javascript
+import { useState, useEffect } from 'react';
+
+function Music() {
+  const [musicItems, setMusicItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMusic = async () => {
+      try {
+        const response = await fetch(
+          'https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/config/music.json'
+        );
+        const data = await response.json();
+        setMusicItems(data.items);
+      } catch (error) {
+        console.error('获取音乐失败:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMusic();
+  }, []);
+
+  const getGitHubUrl = (path) => {
+    return `https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main${path}`;
+  };
+
+  if (loading) return <div>加载中...</div>;
+
+  return (
+    <div>
+      {musicItems.map(item => (
+        <div key={item.id}>
+          <img 
+            src={getGitHubUrl(item.cover)} 
+            alt={item.title} 
+          />
+          <h3>{item.title}</h3>
+          <p>{item.excerpt}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Music;
+```
+
+## ✅ 优势
+
+1. **简单直接**: 无需认证，直接访问文件
+2. **性能更好**: 通过GitHub CDN加速
+3. **易于维护**: 本地修改后推送到GitHub即可更新
+4. **无限制**: 没有API请求频率限制
+
+## 🚀 部署步骤
+
+1. 在GitHub上将仓库改为公开
+2. 推送所有数据文件
+3. 修改前端代码使用GitHub raw URL
+4. 测试所有页面功能
 
 ---
 
-**注意**: 这是一个私有仓库，所有访问都需要通过GitHub API进行认证。
+**注意**: 这是一个公开仓库，所有内容对公众可见，适合作品集展示使用。

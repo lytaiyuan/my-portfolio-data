@@ -8,7 +8,9 @@
 ├── photos/           # 照片文件
 ├── music/            # 音乐相关文件
 ├── videos/           # 视频相关文件
-├── design/           # 设计作品文件
+├── graphic/          # 平面设计文件
+├── packaging/        # 包装设计文件
+├── vi/               # VI设计文件
 ├── config/           # JSON配置文件
 └── README.md         # 本文件
 ```
@@ -26,7 +28,7 @@
 
 ## 使用说明
 
-前端应用通过GitHub API或GitHub Pages访问这些数据文件，实现内容的云端存储和访问。
+前端应用通过GitHub raw文件URL直接访问这些数据文件，无需认证，实现内容的云端存储和访问。
 
 ## 更新流程
 
