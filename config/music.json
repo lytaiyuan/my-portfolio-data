@@ -3,11 +3,11 @@
   "items": [
     {
       "id": 1,
-      "slug": "epic",
-      "title": "Epic",
-      "hottitle": "史诗级配乐",
-      "hotintro": "震撼人心的史诗配乐，融合古典与现代元素",
-      "excerpt": "一部融合古典与现代元素的史诗级配乐作品，通过宏大的管弦乐编排和现代电子音效的完美结合，营造出震撼人心的听觉体验。",
+      "slug": "杜秋怡琵琶演奏",
+      "title": "杜秋怡",
+      "hottitle": "弦拨之间：琵琶诉说的千年风华",
+      "hotintro": "或悲壮、或柔美、或激昂，让我们在声声余韵中，与古人心意相通。",
+      "excerpt": "或悲壮、或柔美、或激昂，让我们在声声余韵中，与古人心意相通。",
       "cover": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/Epic/cover.jpg",
       "embed": {
         "playerUrl": "https://player.bilibili.com/player.html?bvid=BV1xx411c7mu",
