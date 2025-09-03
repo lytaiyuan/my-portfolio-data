@@ -1,8 +1,24 @@
 {
-  "version": "2025.09.02-0937",
+  "version": "2025.09.04-0034",
   "items": [
     {
       "id": 1,
+      "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/4.jpg",
+      "title": "武隆天坑地缝",
+      "tags": [
+        "风光",
+        "自然",
+        "建筑"
+      ],
+      "w": 2000,
+      "h": 1330,
+      "desc": "于2021年3月拍摄于重庆市武隆县，调色风格模仿了日本摄影师rkrkrk。",
+      "localURL": "photos/4.jpg",
+      "filename": "4.jpg",
+      "localUrl": "/photos/4.jpg"
+    },
+    {
+      "id": 2,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/DSC01115.jpg",
       "title": "起舞的女孩",
       "tags": [
@@ -18,7 +34,7 @@
       "localUrl": "/photos/DSC01115.jpg"
     },
     {
-      "id": 2,
+      "id": 3,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/DSC08997.JPG",
       "title": "电闪雷鸣",
       "tags": [
@@ -34,7 +50,7 @@
       "localUrl": "/photos/DSC08997.JPG"
     },
     {
-      "id": 3,
+      "id": 4,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/DSC01227.jpg",
       "title": "仰望",
       "tags": [
@@ -50,7 +66,7 @@
       "localUrl": "/photos/DSC01227.jpg"
     },
     {
-      "id": 4,
+      "id": 5,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/DSC01116.jpg",
       "title": "起舞的女孩",
       "tags": [
@@ -66,7 +82,7 @@
       "localUrl": "/photos/DSC01116.jpg"
     },
     {
-      "id": 5,
+      "id": 6,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/2.jpg",
       "title": "公格尔峰的日照金山",
       "tags": [
@@ -82,7 +98,7 @@
       "localUrl": "/photos/2.jpg"
     },
     {
-      "id": 6,
+      "id": 7,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/DSC00706.jpg",
       "title": "惬意",
       "tags": [
@@ -98,7 +114,7 @@
       "localUrl": "/photos/DSC00706.jpg"
     },
     {
-      "id": 7,
+      "id": 8,
       "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/5.jpg",
       "title": "乌兰布统草原的日落",
       "tags": [
@@ -113,22 +129,6 @@
       "localURL": "photos/5.jpg",
       "filename": "5.jpg",
       "localUrl": "/photos/5.jpg"
-    },
-    {
-      "id": 8,
-      "url": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/photos/4.jpg",
-      "title": "武隆天坑地缝",
-      "tags": [
-        "风光",
-        "自然",
-        "建筑"
-      ],
-      "w": 2000,
-      "h": 1330,
-      "desc": "于2021年3月拍摄于重庆市武隆县，调色风格模仿了日本摄影师rkrkrk。",
-      "localURL": "photos/4.jpg",
-      "filename": "4.jpg",
-      "localUrl": "/photos/4.jpg"
     },
     {
       "id": 9,
