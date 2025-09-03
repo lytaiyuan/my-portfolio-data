@@ -3,6 +3,22 @@
   "items": [
     {
       "id": 1,
+      "slug": "weishan-yanyu",
+      "title": "巍山烟雨",
+      "poster": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/weishan/weishan.jpg",
+      "src": "https://pub-974d205cc415434caffad4fc0bcf7cad.r2.dev/weishan.mp4",
+      "embed": {
+        "type": "bilibili",
+        "playerUrl": "https://www.bilibili.com/video/BV1TwhRzbEwS/"
+      },
+      "duration": "2:12",
+      "hottitle": "巍山",
+      "hotintro": "在云南，其实有比大理更原生态的世外桃源。这里没有过度的商业开发，你可以体验到最纯粹的云南生活。",
+      "excerpt": "雨中的巍山古镇",
+      "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/weishan/weishan.txt" 
+    }
+    {
+      "id": 2,
       "slug": "tingjian-ziji-tingjian-ni",
       "title": "听见自己，听见你",
       "poster": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/yuntingfinal/yuntingfinal.jpg",
@@ -18,7 +34,7 @@
       "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/yuntingfinal/yuntingfinal.txt"  
     },
     {
-      "id": 2,
+      "id": 3,
       "slug": "liuzhuan-2023",
       "title": "流转2023",
       "poster": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/2023/2023.jpg",
@@ -32,22 +48,6 @@
       "hotintro": "和我一起，回到2023年的那些美好瞬间。",
       "excerpt": "回顾我的2023年",
       "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/2023/2023.txt" 
-    },
-    {
-      "id": 3,
-      "slug": "weishan-yanyu",
-      "title": "巍山烟雨",
-      "poster": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/weishan/weishan.jpg",
-      "src": "https://pub-974d205cc415434caffad4fc0bcf7cad.r2.dev/weishan.mp4",
-      "embed": {
-        "type": "bilibili",
-        "playerUrl": "https://www.bilibili.com/video/BV1TwhRzbEwS/"
-      },
-      "duration": "2:12",
-      "hottitle": "巍山",
-      "hotintro": "在云南，其实有比大理更原生态的世外桃源。这里没有过度的商业开发，你可以体验到最纯粹的云南生活。",
-      "excerpt": "雨中的巍山古镇",
-      "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/videos/weishan/weishan.txt" 
     }
   ]
 }
