@@ -15,7 +15,10 @@
       },
       "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/Epic/Epic.txt",
       "scoreFolder": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/Epic/score/",
-      "duration": "3:45"
+      "duration": "3:45",
+      "coverLocalUrl": "/music/Epic/cover.jpg",
+      "descriptionLocalUrl": "/music/Epic/Epic.txt",
+      "scoreFolderLocalUrl": "/music/Epic/score/"
     },
     {
       "id": 2,
@@ -31,7 +34,10 @@
       },
       "descriptionFile": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/AnotherSong/AnotherSong.txt",
       "scoreFolder": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/music/AnotherSong/score/",
-      "duration": "4:12"
+      "duration": "4:12",
+      "coverLocalUrl": "/music/AnotherSong/cover.jpg",
+      "descriptionLocalUrl": "/music/AnotherSong/AnotherSong.txt",
+      "scoreFolderLocalUrl": "/music/AnotherSong/score/"
     }
   ]
 }

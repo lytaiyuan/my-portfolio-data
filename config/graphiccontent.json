@@ -7,8 +7,15 @@
       "title": "春城湖畔度假村",
       "subtitle": "品牌视觉手册提案",
       "cover": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/km/cover.jpg",
-      "images": ["https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/km/image.jpg"],
-      "pdf": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/km/doc.pdf"
+      "images": [
+        "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/km/image.jpg"
+      ],
+      "pdf": "https://raw.githubusercontent.com/lytaiyuan/my-portfolio-data/main/graphic/km/doc.pdf",
+      "coverLocalUrl": "/graphic/km/cover.jpg",
+      "pdfLocalUrl": "/graphic/km/doc.pdf",
+      "imagesLocalUrls": [
+        "/graphic/km/image.jpg"
+      ]
     }
   ]
 }
